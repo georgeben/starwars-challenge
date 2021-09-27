@@ -1,0 +1,8 @@
+{
+  "name": "STARWARS LEGACY API",
+  "version": "1.0.0",
+  "description": "API Starwars Legacy",
+  "title": "API Documentation for Starwars Challenge",
+  "url": "http://127.0.0.1:2187/v1",
+  "sampleUrl": "http://127.0.0.1:2187/v1"
+}
