@@ -1,12 +1,10 @@
 {
   "watch": ["src"],
-  "ext": "js",
+  "ext": ".js",
   "ignore": [
     ".git",
     "node_modules/"
   ],
-  "delay": "3",
-  "execMap": {
-    "js": "babel-node"
-  }
+  "delay": "1000",
+  "exec": "NODE_ENV=development npm run build && node dist/index.js"
 }

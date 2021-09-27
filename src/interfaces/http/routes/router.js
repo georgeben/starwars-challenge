@@ -1,4 +1,6 @@
+/* eslint-disable no-template-curly-in-string */
 import { Router } from "express";
+import halson from "halson";
 import bodyParser from "body-parser";
 import requestIp from "request-ip";
 import cors from "cors";
@@ -51,9 +53,17 @@ export default ({ config, containerMiddleware }) => {
     return next();
   });
 
-  router.get("/", (req, res) => res.json({
-    message: "Starwars Challenge API",
-  }));
+  router.get("/", (req, res) => res.json(
+    halson({
+      message: "Starwars Challenge API",
+      version: "1.0.0",
+    })
+      .addLink("self", "/")
+      .addLink("docs", "/rest-docs")
+      .addLink("movies", "/v1/movies")
+      .addLink("characters", "/v1/movies/${id}/characters")
+      .addLink("comment", "/v1/movies/${id}/comments"),
+  ));
 
   router.use("/v1", v1Routes);
 
