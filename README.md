@@ -1,4 +1,4 @@
-# Starwars Challenge
+# Starwars Challenge 🛰
 
 A simple RESTful API to fetch information about starwars films
 
