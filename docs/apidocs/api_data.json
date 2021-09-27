@@ -43,7 +43,14 @@
             "description": "<ul> <li>User's comment (500 characters max)</li> </ul>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"content\": \"Best film evurrr\",\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [
@@ -107,14 +114,21 @@
             "description": "<ul> <li>Filter by gender</li> </ul>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"sortBy\": \"gender\",\n  \"order\": \"asc\"\n  \"gender\": \"female\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "1.0.0",
     "success": {
       "examples": [
         {
           "title": "Success Response:",
-          "content": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"message\": \"Successfully posted comment\",\n    \"data\": {\n    },\n    \"links\": []\n}",
+          "content": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"message\": \"Successfully posted comment\",\n    \"data\": {\n       \"characters\": [\n         {\n             \"name\": \"Leia Organa\",\n             \"height\": \"150\",\n             \"mass\": \"49\",\n             \"hair_color\": \"brown\",\n             \"skin_color\": \"light\",\n             \"eye_color\": \"brown\",\n             \"birth_year\": \"19BBY\",\n             \"gender\": \"female\",\n             \"homeworld\": \"https://swapi.dev/api/planets/2/\",\n             \"films\": [\n                 \"https://swapi.dev/api/films/1/\",\n                 \"https://swapi.dev/api/films/2/\",\n                 \"https://swapi.dev/api/films/3/\",\n                 \"https://swapi.dev/api/films/6/\"\n             ],\n             \"species\": [],\n             \"vehicles\": [\n                 \"https://swapi.dev/api/vehicles/30/\"\n             ],\n             \"starships\": [],\n             \"created\": \"2014-12-10T15:20:09.791000Z\",\n             \"edited\": \"2014-12-20T21:17:50.315000Z\",\n             \"url\": \"https://swapi.dev/api/people/5/\"\n         },\n         {\n             \"name\": \"Luke Skywalker\",\n             \"height\": \"172\",\n             \"mass\": \"77\",\n             \"hair_color\": \"blond\",\n             \"skin_color\": \"fair\",\n             \"eye_color\": \"blue\",\n             \"birth_year\": \"19BBY\",\n             \"gender\": \"male\",\n             \"homeworld\": \"https://swapi.dev/api/planets/1/\",\n             \"films\": [\n                 \"https://swapi.dev/api/films/1/\",\n                 \"https://swapi.dev/api/films/2/\",\n                 \"https://swapi.dev/api/films/3/\",\n                 \"https://swapi.dev/api/films/6/\"\n             ],\n             \"species\": [],\n             \"vehicles\": [\n                 \"https://swapi.dev/api/vehicles/14/\",\n                 \"https://swapi.dev/api/vehicles/30/\"\n             ],\n             \"starships\": [\n                 \"https://swapi.dev/api/starships/12/\",\n                 \"https://swapi.dev/api/starships/22/\"\n             ],\n             \"created\": \"2014-12-09T13:50:51.644000Z\",\n             \"edited\": \"2014-12-20T21:17:56.891000Z\",\n             \"url\": \"https://swapi.dev/api/people/1/\"\n         },\n     ],\n     \"metadata\": {\n         \"totalCount\": 3,\n         \"totalHeightInCM\": 2708,\n         \"totalHeightInFeet\": \"88.85\",\n         \"totalHeightInInches\": \"1066.14\"\n     }\n    },\n    \"links\": []\n}",
           "type": "json"
         }
       ]
