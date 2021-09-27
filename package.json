@@ -4,7 +4,7 @@
   "description": "Starwars API",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --delete-dir-on-start --copy-files -d dist",
+    "build": "babel src --delete-dir-on-start --ignore \"src/**/*.spec.js\" --copy-files --no-copy-ignored -d dist",
     "prestart": "npm run build && npm run migrate:up",
     "start:dev": "nodemon \"src/index.js\"",
     "start": "cross-env NODE_ENV=production pm2-runtime start ecosystem.config.js --env production",
