@@ -1,5 +1,5 @@
 # Starwars Challenge 🛰
-
+[![Continuous-Integration](https://github.com/georgeben/starwars-challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/georgeben/starwars-challenge/actions/workflows/ci.yml)  
 A simple RESTful API to fetch information about starwars films
 
 ## Technologies
