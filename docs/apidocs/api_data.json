@@ -1,0 +1,155 @@
+[
+  {
+    "type": "get",
+    "url": "/movies/:id/comments",
+    "title": "List comments",
+    "group": "Comment",
+    "name": "GetComment",
+    "description": "<p>Retrieve list of comments for a movie in reverse chronological order</p>",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success Response:",
+          "content": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"message\": \"Successfully posted comment\",\n    \"data\": {\n       \"comments\": [\n          {\n              \"id\": 2,\n              \"movieId\": 1,\n              \"content\": \"This movie sucks!\",\n              \"ipAddress\": \"::ffff:127.0.0.1\",\n              \"createdAt\": \"2021-09-27T09:09:29.247Z\",\n              \"updatedAt\": \"2021-09-27T09:09:29.247Z\"\n          },\n          {\n              \"id\": 1,\n              \"movieId\": 1,\n              \"content\": \"It's great!\",\n              \"ipAddress\": \"::ffff:127.0.0.1\",\n              \"createdAt\": \"2021-09-27T08:48:19.950Z\",\n              \"updatedAt\": \"2021-09-27T08:48:19.950Z\"\n          }\n      ]\n    },\n    \"links\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/interfaces/http/routes/v1/moviesRoute.js",
+    "groupTitle": "Comment",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:2187/v1/movies/:id/comments"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "/movies/:id/comments",
+    "title": "Post comment",
+    "group": "Comment",
+    "name": "PostComment",
+    "description": "<p>Posts a comment for a movie anonymously👻</p>",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<ul> <li>User's comment (500 characters max)</li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success Response:",
+          "content": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"message\": \"Successfully posted comment\",\n    \"data\": {\n       \"comment\": {\n          \"id\": 1,\n          \"movieId\": 1,\n          \"content\": \"It's great!\",\n          \"ipAddress\": \"::ffff:127.0.0.1\",\n          \"updatedAt\": \"2021-09-27T08:48:19.950Z\",\n          \"createdAt\": \"2021-09-27T08:48:19.950Z\"\n      }\n    },\n    \"links\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/interfaces/http/routes/v1/moviesRoute.js",
+    "groupTitle": "Comment",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:2187/v1/movies/:id/comments"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/movies/:id/characters",
+    "title": "List characters",
+    "group": "Movies",
+    "name": "GetCharacters",
+    "description": "<p>Retrieve list of characters in a movie</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"name\"",
+              "\"gender\"",
+              "\"height\""
+            ],
+            "optional": false,
+            "field": "sortBy",
+            "description": "<ul> <li>Field to sort by</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"asc\"",
+              "\"desc\""
+            ],
+            "optional": false,
+            "field": "order",
+            "description": "<ul> <li>Sorting order</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"male\"",
+              "\"female\""
+            ],
+            "optional": false,
+            "field": "gender",
+            "description": "<ul> <li>Filter by gender</li> </ul>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success Response:",
+          "content": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"message\": \"Successfully posted comment\",\n    \"data\": {\n    },\n    \"links\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/interfaces/http/routes/v1/moviesRoute.js",
+    "groupTitle": "Movies",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:2187/v1/movies/:id/characters"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/movies/",
+    "title": "List movies",
+    "group": "Movies",
+    "name": "ListMovies",
+    "description": "<p>Lists all starwars movies sorted by release_date from earliest to newest</p>",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success Response:",
+          "content": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"message\": \"Successfully fetched user data\",\n    \"data\": {\n       \"movies\": [\n          {\n              \"title\": \"A New Hope\",\n              \"episode_id\": 4,\n              \"opening_crawl\": \"It is a period of civil war.\\r\\nRebel spaceships, striking\\r\\nfrom a hidden base, have won\\r\\ntheir first victory against\\r\\nthe evil Galactic Empire.\\r\\n\\r\\nDuring the battle, Rebel\\r\\nspies managed to steal secret\\r\\nplans to the Empire's\\r\\nultimate weapon, the DEATH\\r\\nSTAR, an armored space\\r\\nstation with enough power\\r\\nto destroy an entire planet.\\r\\n\\r\\nPursued by the Empire's\\r\\nsinister agents, Princess\\r\\nLeia races home aboard her\\r\\nstarship, custodian of the\\r\\nstolen plans that can save her\\r\\npeople and restore\\r\\nfreedom to the galaxy....\",\n              \"release_date\": \"1977-05-25\",\n              \"numberOfComments\": 2\n          },\n          {\n              \"title\": \"The Empire Strikes Back\",\n              \"episode_id\": 5,\n              \"opening_crawl\": \"It is a dark time for the\\r\\nRebellion. Although the Death\\r\\nStar has been destroyed,\\r\\nImperial troops have driven the\\r\\nRebel forces from their hidden\\r\\nbase and pursued them across\\r\\nthe galaxy.\\r\\n\\r\\nEvading the dreaded Imperial\\r\\nStarfleet, a group of freedom\\r\\nfighters led by Luke Skywalker\\r\\nhas established a new secret\\r\\nbase on the remote ice world\\r\\nof Hoth.\\r\\n\\r\\nThe evil lord Darth Vader,\\r\\nobsessed with finding young\\r\\nSkywalker, has dispatched\\r\\nthousands of remote probes into\\r\\nthe far reaches of space....\",\n              \"release_date\": \"1980-05-17\",\n              \"numberOfComments\": 0\n          },\n          {\n              \"title\": \"Return of the Jedi\",\n              \"episode_id\": 6,\n              \"opening_crawl\": \"Luke Skywalker has returned to\\r\\nhis home planet of Tatooine in\\r\\nan attempt to rescue his\\r\\nfriend Han Solo from the\\r\\nclutches of the vile gangster\\r\\nJabba the Hutt.\\r\\n\\r\\nLittle does Luke know that the\\r\\nGALACTIC EMPIRE has secretly\\r\\nbegun construction on a new\\r\\narmored space station even\\r\\nmore powerful than the first\\r\\ndreaded Death Star.\\r\\n\\r\\nWhen completed, this ultimate\\r\\nweapon will spell certain doom\\r\\nfor the small band of rebels\\r\\nstruggling to restore freedom\\r\\nto the galaxy...\",\n              \"release_date\": \"1983-05-25\",\n               \"numberOfComments\": 0\n          },\n          {\n              \"title\": \"The Phantom Menace\",\n              \"episode_id\": 1,\n              \"opening_crawl\": \"Turmoil has engulfed the\\r\\nGalactic Republic. The taxation\\r\\nof trade routes to outlying star\\r\\nsystems is in dispute.\\r\\n\\r\\nHoping to resolve the matter\\r\\nwith a blockade of deadly\\r\\nbattleships, the greedy Trade\\r\\nFederation has stopped all\\r\\nshipping to the small planet\\r\\nof Naboo.\\r\\n\\r\\nWhile the Congress of the\\r\\nRepublic endlessly debates\\r\\nthis alarming chain of events,\\r\\nthe Supreme Chancellor has\\r\\nsecretly dispatched two Jedi\\r\\nKnights, the guardians of\\r\\npeace and justice in the\\r\\ngalaxy, to settle the conflict....\",\n              \"release_date\": \"1999-05-19\",\n               \"numberOfComments\": 0\n          },\n          {\n              \"title\": \"Attack of the Clones\",\n              \"episode_id\": 2,\n              \"opening_crawl\": \"There is unrest in the Galactic\\r\\nSenate. Several thousand solar\\r\\nsystems have declared their\\r\\nintentions to leave the Republic.\\r\\n\\r\\nThis separatist movement,\\r\\nunder the leadership of the\\r\\nmysterious Count Dooku, has\\r\\nmade it difficult for the limited\\r\\nnumber of Jedi Knights to maintain \\r\\npeace and order in the galaxy.\\r\\n\\r\\nSenator Amidala, the former\\r\\nQueen of Naboo, is returning\\r\\nto the Galactic Senate to vote\\r\\non the critical issue of creating\\r\\nan ARMY OF THE REPUBLIC\\r\\nto assist the overwhelmed\\r\\nJedi....\",\n              \"release_date\": \"2002-05-16\",\n               \"numberOfComments\": 0,\n          },\n          {\n              \"title\": \"Revenge of the Sith\",\n              \"episode_id\": 3,\n              \"opening_crawl\": \"War! The Republic is crumbling\\r\\nunder attacks by the ruthless\\r\\nSith Lord, Count Dooku.\\r\\nThere are heroes on both sides.\\r\\nEvil is everywhere.\\r\\n\\r\\nIn a stunning move, the\\r\\nfiendish droid leader, General\\r\\nGrievous, has swept into the\\r\\nRepublic capital and kidnapped\\r\\nChancellor Palpatine, leader of\\r\\nthe Galactic Senate.\\r\\n\\r\\nAs the Separatist Droid Army\\r\\nattempts to flee the besieged\\r\\ncapital with their valuable\\r\\nhostage, two Jedi Knights lead a\\r\\ndesperate mission to rescue the\\r\\ncaptive Chancellor....\",\n              \"release_date\": \"2005-05-19\",\n               \"numberOfComments\": 0\n          }\n      ],\n      \"count\": 6\n    },\n    \"links\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/interfaces/http/routes/v1/moviesRoute.js",
+    "groupTitle": "Movies",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:2187/v1/movies/"
+      }
+    ]
+  }
+]

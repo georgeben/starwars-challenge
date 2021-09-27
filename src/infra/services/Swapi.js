@@ -1,5 +1,6 @@
 import axios from "axios";
 import BadGatewayError from "interfaces/http/errors/BadGatewayError";
+import ResourceNotFoundError from "interfaces/http/errors/ResourceNotFoundError";
 
 class Swapi {
   constructor() {
@@ -31,6 +32,17 @@ class Swapi {
       }
       throw new BadGatewayError("Please cannot complete your request at the moment");
     }
+  }
+
+  async getCharacterList(filmId) {
+    const film = await this.getFilm(filmId);
+    if (!film) {
+      throw new ResourceNotFoundError("The movie you specified was not found");
+    }
+    const characterRequests = film.characters.map((url) => axios.get(url));
+    const charactersResponse = await Promise.all(characterRequests);
+    const characters = charactersResponse.map((el) => el.data);
+    return characters;
   }
 }
 

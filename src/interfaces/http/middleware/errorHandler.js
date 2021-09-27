@@ -7,8 +7,9 @@ import ResponseBuilder from "../response/ResponseBuilder";
 
 // eslint-disable-next-line no-unused-vars
 export default async (err, req, res, next) => {
+  console.log("Ah ahn", err);
   if (!err.isOperationalError) {
-    logger.error("An error occurred: ", { error: err.toString(), stack: err.stack });
+    logger.error("An error occurred: ", { error: err.message || err.toString(), stack: err.stack });
   }
 
   if (err.name || err.error) {
