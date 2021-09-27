@@ -1,8 +1,8 @@
 {
-  "name": "STARWARS LEGACY API",
+  "name": "STARWARS CHALLENGE API",
   "version": "1.0.0",
-  "description": "API Starwars Legacy",
-  "title": "API Documentation for Starwars Challenge",
-  "url": "http://127.0.0.1:2187/v1",
+  "description": "API for George's Starwars Challenge",
+  "title": "API Documentation for George's Starwars Challenge",
+  "url": "https://starwars-george.herokuapp.com/v1",
   "sampleUrl": "http://127.0.0.1:2187/v1"
 }
